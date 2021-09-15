@@ -1,0 +1,11 @@
+
+body{
+    text-align: center;
+    height: 95vh;
+    width: 95;
+    display: flex;
+    justify-content: center; /* Alinha na Horizontal*/
+    align-items: center; /* Alinha na vertical*/
+    flex-direction: column;
+    color: darkgreen;
+}
