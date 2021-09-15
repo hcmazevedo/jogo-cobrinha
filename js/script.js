@@ -7,6 +7,10 @@ snake[0] = {
     y: 8 * box
 }
 let direction = "right";
+let food = {
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 +1) * box
+}
 
 function criarBG(){
     context.fillStyle = "lightgreen"; // Cor do Context
@@ -20,10 +24,15 @@ function criarCobrinha(){
     }
 }
 
+function drawfood(){
+    context.fillStyle = "red";
+    context.fillRect(food.x, food.y, box, box);
+}
+
 // Adiciona o evento de movimento do jogo
 document.addEventListener('keydown', update);
 
-function update(event){
+function update (event){
     if(event.KeyCode == 37 && direction != "right") direction = "left";
     if(event.KeyCode == 38 && direction != "down") direction = "up";
     if(event.KeyCode == 39 && direction != "left") direction = "right";
@@ -38,6 +47,7 @@ function iniciarJogo(){
 
     criarBG();
     criarCobrinha();
+    drawfood();
 
     let snakeX = snake[0].x; // Posição inicial X
     let snakeY = snake[0].y; // Posição inicial Y
